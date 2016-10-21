@@ -17,7 +17,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="0dp">
 
@@ -26,28 +26,32 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
 
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:src="@android:drawable/ic_menu_add" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
 
-            android:id="@+id/button2" />
+            android:id="@+id/button2"
+            android:src="@android:drawable/ic_menu_edit" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
 
-            android:id="@+id/button3" />
+            android:id="@+id/button3"
+            android:src="@android:drawable/ic_menu_delete" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
 
-            android:id="@+id/button4" />
+            android:id="@+id/button4"
+            android:src="@android:drawable/ic_menu_save" />
     </LinearLayout>
 
     <com.example.joser.paint.Lienzo
