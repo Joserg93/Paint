@@ -21,32 +21,32 @@
         android:layout_weight="1"
         android:layout_height="0dp">
 
-        <Button
+        <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="New Button"
+
             android:id="@+id/button" />
 
-        <Button
+        <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="New Button"
+
             android:id="@+id/button2" />
 
-        <Button
+        <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="New Button"
+
             android:id="@+id/button3" />
 
-        <Button
+        <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="New Button"
+
             android:id="@+id/button4" />
     </LinearLayout>
 
@@ -54,8 +54,8 @@
         android:layout_width="match_parent"
         android:layout_weight="5"
         android:layout_height="0dp"
-        android:id="@+id/view" />
-
+        android:id="@+id/lienzo"
+        android:background="#ffff"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -65,32 +65,37 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton" />
+            android:layout_height="30dp"
+            android:id="@+id/imageButton"
+            android:background="#f1e349" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton2" />
+            android:layout_height="30dp"
+            android:id="@+id/imageButton2"
+            android:background="#040404" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton3" />
+            android:layout_height="30dp"
+            android:id="@+id/imageButton3"
+            android:background="#b9ea4f" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton4" />
+            android:layout_height="30dp"
+            android:id="@+id/imageButton4"
+            android:background="#597beb" />
 
         <ImageButton
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton5" />
+            android:layout_height="30dp"
+            android:id="@+id/imageButton5"
+            android:background="#f45353" />
     </LinearLayout>
 
 </LinearLayout>
