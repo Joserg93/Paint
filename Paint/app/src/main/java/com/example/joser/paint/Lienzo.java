@@ -3,6 +3,7 @@ package com.example.joser.paint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -18,7 +19,7 @@ public class Lienzo extends View {
     //variable paint
     private Paint drawPaint, canvasPaint;
     //variable de color inicial
-    private int paintColor = 13371904;
+    private int paintColor = 0xf1e349;
     //variable canvas
     private Canvas drawCanvas;
     //variable bitmap
@@ -28,6 +29,11 @@ public class Lienzo extends View {
         setupDrawing();
     }
 
+    public void setColor(String newColor){
+        invalidate();
+        paintColor = Color.parseColor(newColor);
+        drawPaint.setColor(paintColor);
+    }
     /**
      * tamaño asignado a la vista
      * @param w

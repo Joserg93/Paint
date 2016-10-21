@@ -59,7 +59,9 @@
         android:layout_weight="5"
         android:layout_height="0dp"
         android:id="@+id/lienzo"
-        android:background="#ffff"/>
+        android:background="#ffff"
+        android:clickable="true"
+        android:longClickable="true" />
 
     <LinearLayout
         android:orientation="horizontal"
