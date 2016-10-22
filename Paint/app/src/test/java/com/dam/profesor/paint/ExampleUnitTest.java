@@ -1,4 +1,4 @@
-package com.example.joser.paint;
+package com.dam.profesor.paint;
 
 import org.junit.Test;
 
