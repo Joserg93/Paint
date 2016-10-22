@@ -16,13 +16,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-
-/**
- * Created by Profesor on 29/10/2015.
- */
 public class Lienzo extends View {
-
-    //Path que utilizaré para ir pintando las lineas
+    //Path para ir pintando las lineas
     private Path drawPath;
     //Paint de dibujar y Paint de Canvas
     private static Paint drawPaint;
@@ -33,58 +28,62 @@ public class Lienzo extends View {
     private Canvas drawCanvas;
     //canvas para guardar
     private Bitmap canvasBitmap;
-
     static float TamanyoPunto;
     private static boolean borrado=false;
-
-
+    /**
+     * constructor
+     * @param context
+     * @param attrs
+     */
     public Lienzo(Context context, AttributeSet attrs) {
         super(context, attrs);
         setupDrawing();
     }
-
-
+    /**
+     * Configuración del area sobre la que pintar
+     */
     private void setupDrawing(){
-//Configuración del area sobre la que pintar
-
         drawPath = new Path();
         drawPaint = new Paint();
         drawPaint.setColor(paintColor);
         drawPaint.setAntiAlias(true);
-
-        //setTamanyoPunto(20);
-
         drawPaint.setStrokeWidth(20);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
         canvasPaint = new Paint(Paint.DITHER_FLAG);
-
-
     }
-
-    //Tamaño asignado a la vista
+    /**
+     * Tamaño asignado a la vista
+     * @param w
+     * @param h
+     * @param oldw
+     * @param oldh
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         drawCanvas = new Canvas(canvasBitmap);
     }
-
-
-    //Pinta la vista. Será llamado desde el OnTouchEvent
+    /**
+     * Pinta la vista. Será llamado desde el OnTouchEvent
+     * @param canvas
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
     }
-
-    //Registra los touch de usuario
+    /**
+     * Registra los touch de usuario
+     * @param event
+     * @return
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
         float touchY = event.getY();
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 drawPath.moveTo(touchX, touchY);
@@ -103,49 +102,41 @@ public class Lienzo extends View {
         //repintar
         invalidate();
         return true;
-
     }
-
-    //Actualiza color
+    /**
+     * Actualiza color
+     * @param newColor
+     */
     public void setColor(String newColor){
         invalidate();
         paintColor = Color.parseColor(newColor);
         drawPaint.setColor(paintColor);
     }
-
-    //Poner tamaño del punto
+    /**
+     * /Poner tamaño del punto
+     * @param nuevoTamanyo
+     */
     public static void setTamanyoPunto(float nuevoTamanyo){
-
-
-        //float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-        //        nuevoTamanyo, getResources().getDisplayMetrics());
-
-        //TamanyoPunto=pixel;
         drawPaint.setStrokeWidth(nuevoTamanyo);
     }
-
-
-    //set borrado true or false
+    /**
+     * set borrado true or false
+     * @param estaborrado
+     */
     public static void setBorrado(boolean estaborrado){
         borrado=estaborrado;
         if(borrado) {
-
             drawPaint.setColor(Color.WHITE);
-            //drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-
         }
         else {
             drawPaint.setColor(paintColor);
-            //drawPaint.setXfermode(null);
         }
     }
-
+    /**
+     * genera un nuevo dibujo
+     */
     public void NuevoDibujo(){
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
-
     }
-
-
-
 }
